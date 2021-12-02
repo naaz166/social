@@ -1,0 +1,31 @@
+$background: blue;
+$text-colour: grey;
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+@mixin text-effect($val) {
+  @if $val == danger {
+    color: red;
+  } @else if $val == alert {
+    color: yellow;
+  } @else if $val == success {
+    color: green;
+  } @else {
+    color: black;
+  }
+}
+
+.appContainer {
+  background-color: $background;
+  color: $text-colour;
+}
+
+.counter {
+  background-color: green;
+  @include transform(rotate(2deg));
+  @include text-effect(danger);
+}
